@@ -1,0 +1,33 @@
+{
+    "name": "persist/tests",
+    "description": "Functional tests for all Persist libraries",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Arnold Daniels",
+            "email": "arnold@jasny.net"
+        }
+    ],
+    "require": {
+        "php": ">=7.4.0",
+        "persist/core": "dev-master as 1.0.0"
+    },
+    "require-dev": {
+        "jasny/php-code-quality": "^2.5",
+        "phpunit/phpunit": "~8.2.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Persist\\Tests\\": "src/"
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/jasny/persist"
+        }
+    ]
+}
