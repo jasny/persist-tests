@@ -1,5 +1,5 @@
 {
-    "name": "persist/tests",
+    "name": "jasny/persist-tests",
     "description": "Functional tests for all Persist libraries",
     "type": "library",
     "license": "MIT",
@@ -19,7 +19,7 @@
     },
     "autoload": {
         "psr-4": {
-            "Persist\\Tests\\": "src/"
+            "Jasny\\Tests\\Persist\\": "src/"
         }
     },
     "minimum-stability": "dev",
