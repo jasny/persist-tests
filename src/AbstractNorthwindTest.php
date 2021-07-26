@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Jasny\Persist\Tests;
+namespace Jasny\Tests\Persist;
 
 use Jasny\Persist\Gateway\GatewayInterface;
 use Jasny\Persist\Option\Functions as opt;
