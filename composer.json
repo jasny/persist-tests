@@ -11,7 +11,7 @@
     ],
     "require": {
         "php": ">=7.4.0",
-        "persist/core": "dev-master as 1.0.0"
+        "jasny/persist-core": "dev-master as 1.0.0"
     },
     "require-dev": {
         "jasny/php-code-quality": "^2.5",
