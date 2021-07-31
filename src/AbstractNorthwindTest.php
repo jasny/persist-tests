@@ -21,6 +21,34 @@ abstract class AbstractNorthwindTest extends TestCase
      */
     abstract protected function getGateway(string $name): GatewayInterface;
 
+    public function testCountEmployees(): void
+    {
+        $gateway = $this->getGateway('employees');
+
+        $this->assertEquals(9, $gateway->count());
+    }
+
+
+    public function testFetchEmployee(): void
+    {
+        $gateway = $this->getGateway('employees');
+
+        $result = $gateway->fetch(
+            [],
+            opt\fields('id', 'company', 'first_name', 'last_name'),
+            opt\limit(3),
+            opt\sort('id'),
+        );
+
+        $expected = [
+            ['id' => 1, 'company' => 'Northwind Traders', 'first_name' => 'Nancy', 'last_name' => 'Freehafer'],
+            ['id' => 2, 'company' => 'Northwind Traders', 'first_name' => 'Andrew', 'last_name' => 'Cencini'],
+            ['id' => 3, 'company' => 'Northwind Traders', 'first_name' => 'Jan', 'last_name' => 'Kotas'],
+        ];
+
+        $this->assertEquals($expected, $result->toArray());
+    }
+
     public function testFetchOrderWithCustomer()
     {
         $gateway = $this->getGateway('orders');
@@ -108,7 +136,7 @@ abstract class AbstractNorthwindTest extends TestCase
 
         $order = $gateway
             ->fetch(
-                ["id" => 44],
+                ['id' => 44],
                 opt\limit(1),
                 opt\fields('id', 'order_date', 'details.product', 'details.unit_price'),
                 opt\hydrate('product_id')->for('details')
